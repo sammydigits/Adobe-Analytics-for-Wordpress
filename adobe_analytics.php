@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Adobe Analytics for WordPress
+ * Plugin Name: Adobe Analytics for WordPress (Sam's fork)
  * Plugin URI: n/a
  * Description: Facilitates integration with the Adobe Analytics library.
  * Version: 0.6.8
