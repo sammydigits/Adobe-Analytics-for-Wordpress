@@ -91,16 +91,31 @@ if(!class_exists('Adobe_Analytics'))
       //the tracking script
       ?><script type="text/javascript">
       
-        if(typeof(s) === 'undefined') {
-          if(typeof(AppMeasurement) === 'undefined') {
-            s = s_gi(s_account); //initialize library as s
-          }else{
-            s = new AppMeasurement(); //initialize library as s
-          }
-        }
-        s.account="<?php echo $vars['app_id']; ?>" //sets metric accounts
+        IG_WA.server = (document.location.href.indexOf("www.")>-1 || document.location.href.indexOf("demo.")>-1 ) ? "live" :"test";
+        IG_WA.site="ndx";
+<?php
+if (is_category( )) {
+  $cat = get_query_var('cat');
+  $yourcat = get_category ($cat);
+  echo 'IG_WA.section="'. $yourcat->slug .'";';
+ }
+?>        
+        IG_WA.pagename="<?php echo $vars['page_title']; ?>";
+        IG_WA.language="en_US";
+        if(document.getElementsByTagName("iframe").length>0) IG_WA.iframe="yes";
+        IG_WA.pageTrack();
+      
+      
+        //if(typeof(s) === 'undefined') {
+        //  if(typeof(AppMeasurement) === 'undefined') {
+        //    s = s_gi(s_account); //initialize library as s
+        //  }else{
+        //    s = new AppMeasurement(); //initialize library as s
+        //  }
+        //}
+        //s.account="<?php echo $vars['app_id']; ?>" //sets metric accounts
         <?php echo $vars['custom_js']; ?> //adds custom js from settings page (ie. plugins etc..)
-        s.pageName="<?php echo $vars['page_title']; ?>" //page title variable
+        //s.pageName="<?php echo $vars['page_title']; ?>" //page title variable
         <?php
         /**
          * Handling of custom variables
@@ -125,8 +140,8 @@ if(!class_exists('Adobe_Analytics'))
         if (!is_null($page_vars)) {
           echo $page_vars;
         }?>
-        var s_code=s.t();
-        if(s_code)document.write(s_code);//-->
+        //var s_code=s.t();
+        //if(s_code)document.write(s_code);//-->
       </script><?php
 
     }
