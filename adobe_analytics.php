@@ -101,18 +101,7 @@ echo $categories[0]->cat_name;
         IG_WA.language="en_US";
         if(document.getElementsByTagName("iframe").length>0) IG_WA.iframe="yes";
         IG_WA.pageTrack();
-      
-      
-        //if(typeof(s) === 'undefined') {
-        //  if(typeof(AppMeasurement) === 'undefined') {
-        //    s = s_gi(s_account); //initialize library as s
-        //  }else{
-        //    s = new AppMeasurement(); //initialize library as s
-        //  }
-        //}
-        //s.account="<?php echo $vars['app_id']; ?>" //sets metric accounts
-        <?php echo $vars['custom_js']; ?> //adds custom js from settings page (ie. plugins etc..)
-        //s.pageName="<?php echo $vars['page_title']; ?>" //page title variable
+
         <?php
         /**
          * Handling of custom variables
@@ -137,8 +126,6 @@ echo $categories[0]->cat_name;
         if (!is_null($page_vars)) {
           echo $page_vars;
         }?>
-        //var s_code=s.t();
-        //if(s_code)document.write(s_code);//-->
       </script><?php
 
     }
