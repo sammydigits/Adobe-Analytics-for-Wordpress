@@ -93,7 +93,7 @@ if(!class_exists('Adobe_Analytics'))
       
         IG_WA.server = (document.location.href.indexOf("www.")>-1 || document.location.href.indexOf("demo.")>-1 ) ? "live" :"test";
         IG_WA.site="ndx";
-        IG_WA.section="<?php get_the_category(); ?>";
+        IG_WA.section="<?php echo get_the_category(); ?>";
         IG_WA.pagename="<?php echo $vars['page_title']; ?>";
         IG_WA.language="en_US";
         if(document.getElementsByTagName("iframe").length>0) IG_WA.iframe="yes";
